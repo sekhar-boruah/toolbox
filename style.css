@@ -1,0 +1,683 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    color: #171717;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #635bff;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    text-align: center;
+    padding: 65px 20px 40px;
+}
+
+.badge {
+    display: inline-block;
+
+    background: #ebe9ff;
+    color: #635bff;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-top: 18px;
+}
+
+.hero p {
+    margin-top: 12px;
+    color: #666;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+
+/* ================= TOOL CARDS ================= */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.tool-card {
+    background: white;
+    padding: 30px;
+
+    border-radius: 18px;
+    border: 1px solid #e5e5e5;
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.tool-icon {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.tool-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    color: #666;
+    line-height: 1.5;
+    min-height: 65px;
+}
+
+button {
+    border: none;
+    background: #635bff;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #5149e6;
+}
+
+
+/* ================= TOOL PAGE ================= */
+
+.tool-page {
+    display: none;
+
+    max-width: 800px;
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e5e5;
+}
+
+.tool-page h2 {
+    margin-bottom: 8px;
+}
+
+.tool-description {
+    color: #666;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.back {
+    background: #eee;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.back:hover {
+    background: #ddd;
+}
+
+
+/* ================= UPLOAD ================= */
+
+.upload-box {
+    border: 2px dashed #bbb;
+
+    border-radius: 15px;
+
+    padding: 42px 20px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.upload-box:hover {
+    border-color: #635bff;
+    background: #faf9ff;
+}
+
+.upload-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.upload-box span {
+    color: #777;
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+
+/* ================= PREVIEW ================= */
+
+.preview {
+    display: block;
+
+    max-width: 100%;
+    max-height: 350px;
+
+    margin: 22px auto;
+
+    border-radius: 10px;
+}
+
+
+/* ================= PANEL ================= */
+
+.panel {
+    margin-top: 20px;
+
+    padding: 22px;
+
+    background: #f8f8fb;
+
+    border-radius: 14px;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+
+/* ================= FORM ================= */
+
+.field {
+    flex: 1;
+}
+
+.field label,
+.panel > label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    background: white;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+
+    margin-bottom: 16px;
+}
+
+.lock-area {
+    padding-bottom: 1px;
+}
+
+.lock-button {
+    width: 45px;
+    height: 45px;
+
+    padding: 0;
+
+    background: white;
+    color: #555;
+
+    border: 1px solid #ccc;
+}
+
+.lock-button.active {
+    background: #635bff;
+    color: white;
+    border-color: #635bff;
+}
+
+
+/* ================= RANGE ================= */
+
+.target-display {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.target-display strong {
+    font-size: 25px;
+    color: #635bff;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+/* ================= QUICK BUTTONS ================= */
+
+.quick-grid,
+.preset-grid,
+.aspect-grid {
+    display: grid;
+    gap: 9px;
+}
+
+.quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 16px 0;
+}
+
+.preset-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.aspect-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.quick-size,
+.preset-grid button,
+.aspect {
+    background: white;
+    color: #333;
+
+    border: 1px solid #ccc;
+}
+
+.quick-size:hover,
+.preset-grid button:hover,
+.aspect:hover {
+    border-color: #635bff;
+    background: #faf9ff;
+}
+
+.quick-size.active,
+.aspect.active {
+    background: #635bff;
+    color: white;
+    border-color: #635bff;
+}
+
+
+/* ================= PRIMARY ================= */
+
+.primary {
+    background: #635bff;
+    color: white;
+}
+
+.primary:hover {
+    background: #5149e6;
+}
+
+.full {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+}
+
+
+/* ================= RESIZER ================= */
+
+.resize-meta {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* ================= RESULT ================= */
+
+.result {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #f1f8f3;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    line-height: 1.7;
+}
+
+.result strong {
+    font-size: 18px;
+}
+
+.result a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+/* ================= CROPPER ================= */
+
+.crop-workspace {
+    margin-top: 20px;
+}
+
+.crop-stage {
+    position: relative;
+
+    width: 100%;
+
+    max-height: 550px;
+
+    overflow: hidden;
+
+    background: #222;
+
+    border-radius: 12px;
+}
+
+.crop-stage img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+#cropOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+#cropBox {
+    position: absolute;
+
+    left: 10%;
+    top: 10%;
+
+    width: 80%;
+    height: 80%;
+
+    border: 2px solid white;
+
+    box-shadow:
+        0 0 0 9999px rgba(0,0,0,.55);
+
+    pointer-events: auto;
+
+    cursor: move;
+
+    touch-action: none;
+}
+
+.grid-line {
+    position: absolute;
+    background: rgba(255,255,255,.5);
+    pointer-events: none;
+}
+
+.grid-line.vertical {
+    top: 0;
+    bottom: 0;
+    width: 1px;
+}
+
+.v1 {
+    left: 33.33%;
+}
+
+.v2 {
+    left: 66.66%;
+}
+
+.grid-line.horizontal {
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+.h1 {
+    top: 33.33%;
+}
+
+.h2 {
+    top: 66.66%;
+}
+
+
+/* CROP HANDLES */
+
+.handle {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    background: white;
+
+    border: 2px solid #635bff;
+
+    border-radius: 50%;
+
+    z-index: 5;
+}
+
+.handle.nw {
+    left: -9px;
+    top: -9px;
+    cursor: nwse-resize;
+}
+
+.handle.n {
+    left: calc(50% - 8px);
+    top: -9px;
+    cursor: ns-resize;
+}
+
+.handle.ne {
+    right: -9px;
+    top: -9px;
+    cursor: nesw-resize;
+}
+
+.handle.w {
+    left: -9px;
+    top: calc(50% - 8px);
+    cursor: ew-resize;
+}
+
+.handle.e {
+    right: -9px;
+    top: calc(50% - 8px);
+    cursor: ew-resize;
+}
+
+.handle.sw {
+    left: -9px;
+    bottom: -9px;
+    cursor: nesw-resize;
+}
+
+.handle.s {
+    left: calc(50% - 8px);
+    bottom: -9px;
+    cursor: ns-resize;
+}
+
+.handle.se {
+    right: -9px;
+    bottom: -9px;
+    cursor: nwse-resize;
+}
+
+.crop-info {
+    margin-top: 16px;
+
+    text-align: center;
+
+    color: #666;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 60px;
+
+    padding: 30px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-page {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .field {
+        min-width: 100%;
+    }
+
+    .lock-area {
+        order: 3;
+        width: 100%;
+    }
+
+    .lock-button {
+        width: 100%;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aspect-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .preset-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .crop-stage {
+        max-height: 450px;
+    }
+}

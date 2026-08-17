@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ToolBox - Free Image Tools</title>
+    <meta name="description"
+          content="Free online image compressor, resizer, converter, cropper and image information tools.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Tool<span>Box</span>
+    </div>
+
+    <nav>
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="showHome()">Image Tools</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <span class="badge">FREE ONLINE TOOLS</span>
+
+        <h1>Image Tools</h1>
+
+        <p>
+            Fast, simple tools for your everyday image needs.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="tools-grid">
+
+            <div class="tool-card" onclick="openTool('compressor')">
+                <div class="tool-icon">🗜️</div>
+                <h2>Image Compressor</h2>
+                <p>
+                    Reduce image file size quickly for online applications.
+                </p>
+                <button>Open Tool →</button>
+            </div>
+
+
+            <div class="tool-card" onclick="openTool('resizer')">
+                <div class="tool-icon">📐</div>
+                <h2>Image Resizer</h2>
+                <p>
+                    Resize images using pixels, cm, mm or inches.
+                </p>
+                <button>Open Tool →</button>
+            </div>
+
+
+            <div class="tool-card" onclick="openTool('converter')">
+                <div class="tool-icon">🔄</div>
+                <h2>Image Converter</h2>
+                <p>
+                    Convert JPG, PNG and WebP images easily.
+                </p>
+                <button>Open Tool →</button>
+            </div>
+
+
+            <div class="tool-card" onclick="openTool('cropper')">
+                <div class="tool-icon">✂️</div>
+                <h2>Image Cropper</h2>
+                <p>
+                    Crop images interactively with a live crop box.
+                </p>
+                <button>Open Tool →</button>
+            </div>
+
+
+            <div class="tool-card" onclick="openTool('info')">
+                <div class="tool-icon">🖼️</div>
+                <h2>Image Info</h2>
+                <p>
+                    Check image dimensions, format and file size.
+                </p>
+                <button>Open Tool →</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMPRESSOR ================= -->
+
+<section id="compressor" class="tool-page">
+
+    <button class="back" onclick="showHome()">← Back</button>
+
+    <h2>🗜️ Image Compressor</h2>
+
+    <label class="upload-box" for="compressInput">
+
+        <div class="upload-icon">🖼️</div>
+
+        <strong>Choose or drop an image</strong>
+
+        <span>JPG, PNG or WebP</span>
+
+    </label>
+
+    <input
+        type="file"
+        id="compressInput"
+        accept="image/jpeg,image/png,image/webp"
+        hidden
+    >
+
+    <img id="compressPreview" class="preview">
+
+
+    <div id="compressControls" class="panel" hidden>
+
+        <h3>Target file size</h3>
+
+        <div class="target-display">
+            <strong id="targetValue">200 KB</strong>
+        </div>
+
+        <input
+            type="range"
+            id="sizeSlider"
+            min="20"
+            max="2000"
+            value="200"
+            step="10"
+        >
+
+        <div class="quick-grid">
+
+            <button class="quick-size" data-size="100">
+                Under 100 KB
+            </button>
+
+            <button class="quick-size active" data-size="200">
+                Under 200 KB
+            </button>
+
+            <button class="quick-size" data-size="500">
+                Under 500 KB
+            </button>
+
+        </div>
+
+        <button class="primary full" onclick="compressImage()">
+            ⚡ Compress & Download
+        </button>
+
+    </div>
+
+    <div id="compressResult" class="result"></div>
+
+</section>
+
+
+<!-- ================= RESIZER ================= -->
+
+<section id="resizer" class="tool-page">
+
+    <button class="back" onclick="showHome()">← Back</button>
+
+    <h2>📐 Image Resizer</h2>
+
+    <p class="tool-description">
+        Quickly resize your image for forms, websites and social media.
+    </p>
+
+
+    <label class="upload-box" for="resizeInput">
+
+        <div class="upload-icon">📷</div>
+
+        <strong>Choose or drop an image</strong>
+
+        <span>JPG, PNG or WebP</span>
+
+    </label>
+
+    <input
+        type="file"
+        id="resizeInput"
+        accept="image/*"
+        hidden
+    >
+
+
+    <div id="resizeWorkspace" hidden>
+
+        <img id="resizePreview" class="preview">
+
+
+        <div class="panel">
+
+            <div class="section-title">
+                Dimensions
+            </div>
+
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>Width</label>
+
+                    <input
+                        type="number"
+                        id="resizeWidth"
+                        min="1"
+                    >
+
+                </div>
+
+
+                <div class="lock-area">
+
+                    <button
+                        id="ratioLock"
+                        class="lock-button active"
+                        onclick="toggleRatioLock()">
+
+                        🔒
+
+                    </button>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Height</label>
+
+                    <input
+                        type="number"
+                        id="resizeHeight"
+                        min="1"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>Unit</label>
+
+                    <select id="resizeUnit">
+
+                        <option value="px">Pixels (px)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="in">Inches (in)</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>DPI</label>
+
+                    <select id="resizeDpi">
+
+                        <option value="72">72 DPI</option>
+                        <option value="96">96 DPI</option>
+                        <option value="150">150 DPI</option>
+                        <option value="300" selected>300 DPI</option>
+                        <option value="600">600 DPI</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="presets">
+
+                <div class="section-title">
+                    Quick sizes
+                </div>
+
+                <div class="preset-grid">
+
+                    <button onclick="setResizePreset(300,400)">
+                        300 × 400 px
+                    </button>
+
+                    <button onclick="setResizePreset(600,600)">
+                        600 × 600 px
+                    </button>
+
+                    <button onclick="setResizePreset(1080,1080)">
+                        1080 × 1080 px
+                    </button>
+
+                    <button onclick="setResizePreset(1920,1080)">
+                        1920 × 1080 px
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="resize-meta" id="resizeMeta"></div>
+
+
+            <button
+                class="primary full"
+                onclick="resizeImage()">
+
+                📐 Resize & Download
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="resizeResult" class="result"></div>
+
+</section>
+
+
+<!-- ================= CONVERTER ================= -->
+
+<section id="converter" class="tool-page">
+
+    <button class="back" onclick="showHome()">← Back</button>
+
+    <h2>🔄 Image Converter</h2>
+
+    <p class="tool-description">
+        Convert your image to JPG, PNG or WebP.
+    </p>
+
+
+    <label class="upload-box" for="convertInput">
+
+        <div class="upload-icon">🔄</div>
+
+        <strong>Choose an image</strong>
+
+        <span>JPG, PNG or WebP</span>
+
+    </label>
+
+    <input
+        type="file"
+        id="convertInput"
+        accept="image/*"
+        hidden
+    >
+
+
+    <img id="convertPreview" class="preview">
+
+
+    <div id="convertControls" class="panel" hidden>
+
+        <label>Convert to</label>
+
+        <select id="format">
+
+            <option value="image/jpeg">JPG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+
+        </select>
+
+        <button
+            class="primary full"
+            onclick="convertImage()">
+
+            🔄 Convert & Download
+
+        </button>
+
+    </div>
+
+
+    <div id="convertResult" class="result"></div>
+
+</section>
+
+
+<!-- ================= CROPPER ================= -->
+
+<section id="cropper" class="tool-page">
+
+    <button class="back" onclick="showHome()">← Back</button>
+
+    <h2>✂️ Image Cropper</h2>
+
+    <p class="tool-description">
+        Drag the crop box and adjust its corners.
+    </p>
+
+
+    <label class="upload-box" for="cropInput">
+
+        <div class="upload-icon">✂️</div>
+
+        <strong>Choose an image</strong>
+
+        <span>JPG, PNG or WebP</span>
+
+    </label>
+
+    <input
+        type="file"
+        id="cropInput"
+        accept="image/*"
+        hidden
+    >
+
+
+    <div id="cropWorkspace" class="crop-workspace" hidden>
+
+        <div id="cropStage" class="crop-stage">
+
+            <img id="cropImage">
+
+            <div id="cropOverlay">
+
+                <div id="cropBox">
+
+                    <div class="grid-line vertical v1"></div>
+                    <div class="grid-line vertical v2"></div>
+
+                    <div class="grid-line horizontal h1"></div>
+                    <div class="grid-line horizontal h2"></div>
+
+
+                    <span class="handle nw" data-handle="nw"></span>
+                    <span class="handle n" data-handle="n"></span>
+                    <span class="handle ne" data-handle="ne"></span>
+
+                    <span class="handle w" data-handle="w"></span>
+                    <span class="handle e" data-handle="e"></span>
+
+                    <span class="handle sw" data-handle="sw"></span>
+                    <span class="handle s" data-handle="s"></span>
+                    <span class="handle se" data-handle="se"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="crop-controls panel">
+
+            <div class="section-title">
+                Aspect ratio
+            </div>
+
+            <div class="aspect-grid">
+
+                <button
+                    class="aspect active"
+                    data-ratio="free">
+
+                    Free
+
+                </button>
+
+                <button
+                    class="aspect"
+                    data-ratio="1">
+
+                    1 : 1
+
+                </button>
+
+                <button
+                    class="aspect"
+                    data-ratio="1.333333">
+
+                    4 : 3
+
+                </button>
+
+                <button
+                    class="aspect"
+                    data-ratio="1.777778">
+
+                    16 : 9
+
+                </button>
+
+                <button
+                    class="aspect"
+                    data-ratio="0.75">
+
+                    3 : 4
+
+                </button>
+
+                <button
+                    class="aspect"
+                    data-ratio="0.666667">
+
+                    2 : 3
+
+                </button>
+
+            </div>
+
+
+            <div class="crop-info">
+
+                Crop:
+                <strong id="cropDimensions">
+                    -
+                </strong>
+
+            </div>
+
+
+            <button
+                class="primary full"
+                onclick="cropImage()">
+
+                ✂️ Crop & Download
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="cropResult" class="result"></div>
+
+</section>
+
+
+<!-- ================= IMAGE INFO ================= -->
+
+<section id="info" class="tool-page">
+
+    <button class="back" onclick="showHome()">← Back</button>
+
+    <h2>🖼️ Image Information</h2>
+
+    <p class="tool-description">
+        Quickly check the basic information of an image.
+    </p>
+
+
+    <label class="upload-box" for="infoInput">
+
+        <div class="upload-icon">🖼️</div>
+
+        <strong>Choose an image</strong>
+
+        <span>JPG, PNG or WebP</span>
+
+    </label>
+
+    <input
+        type="file"
+        id="infoInput"
+        accept="image/*"
+        hidden
+    >
+
+
+    <div id="infoResult" class="result"></div>
+
+</section>
+
+
+<footer>
+    © 2026 ToolBox — Free Online Image Tools
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
